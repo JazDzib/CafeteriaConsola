@@ -18,10 +18,7 @@ public class ControladorClientes implements Agregar {
         clientesList = new  ArrayList<>();
         this.vista = vista;
     }
-    /*ControladorClientes(VistaClientes vista) {
-        clientesList = new ArrayList<Clientes>();
-        this.vista = vista;
-    }*/
+
 
 
     public ArrayList<Clientes> getClientesList() {

@@ -1,6 +1,8 @@
 package Modulo;
 
-public class RegistroVentas {
+import java.io.Serializable;
+
+public class RegistroVentas implements Serializable {
     private String codigo;
     private String fecha;
     private int precio;

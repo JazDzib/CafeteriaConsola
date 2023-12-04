@@ -23,6 +23,8 @@ public class ControladorMenuT implements Agregar{
         menuTList =  new ArrayList<>();
         this.vista=vista;
 
+
+
     }//Constructor
     public void iniciardatos (){
 

@@ -114,7 +114,7 @@ public class VistaMenu {
 
     public int MenuModificarMenu(){
         lectura = new Scanner(System.in);
-        //lectura.useDelimiter("\n");
+
         System.out.println("===Menú modificación===");
         System.out.println("1-Categoria ");
         System.out.println("2-Producto");

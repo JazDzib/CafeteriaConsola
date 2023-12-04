@@ -6,7 +6,7 @@ public class VistaControladorP {
     private Scanner lectura;
     public Integer Menu(){
         lectura = new Scanner(System.in);
-        System.out.println("Menú");
+        System.out.println("Menú Principal");
         System.out.println("1- Menu Tienda ");
         System.out.println("2- Registro de Pedido ");
         System.out.println("3- Almacen ");

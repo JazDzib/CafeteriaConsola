@@ -14,11 +14,11 @@ public class ControladorLevantarP implements Agregar {
     private ArrayList<LevantarPedido> pedidosList;
     private VistaLevantarP vista;
     private LevantarPedido pedido1;
+    private ArrayList<MenuTienda> menuTList;
+    private VistaMenu vistamenu;
 
 
-    public ControladorLevantarP() {
-        pedidosList = new  ArrayList<>();
-    }
+
     public void setMenuTList(ArrayList<LevantarPedido> menuTList) {
         this.pedidosList = menuTList;
     }
@@ -27,8 +27,9 @@ public class ControladorLevantarP implements Agregar {
     }
 
     ControladorLevantarP(VistaLevantarP vista){
-        pedidosList =  new ArrayList<LevantarPedido>();
+        pedidosList =  new ArrayList<>();
         this.vista=vista;
+        menuTList = new ArrayList<>();
 
     }//Constructor
     public void iniciardatos (){

@@ -1,10 +1,7 @@
 package Controlador;
 
 import Modulo.Percistencia;
-import Vista.VistaClientes;
-import Vista.VistaControladorP;
-import Vista.VistaLevantarP;
-import Vista.VistaMenu;
+import Vista.*;
 
 public class ControladorPrincipal {
     private VistaControladorP vistacontroladorP;
@@ -16,6 +13,8 @@ public class ControladorPrincipal {
     private ControladorClientes controlClin;
     private VistaLevantarP vistaPedido;
     private ControladorLevantarP controlPedido;
+    private VistaAlmacen vistaAlmacen;
+    private ControladorAlmacen controlAlmacen;
 
     public ControladorPrincipal(VistaControladorP vistacontroladorP) {
         this.vistacontroladorP = vistacontroladorP;
@@ -31,8 +30,18 @@ public class ControladorPrincipal {
         vistaPedido =new VistaLevantarP();
         controlPedido  = new ControladorLevantarP(vistaPedido);
 
+        vistaAlmacen =new VistaAlmacen();
+        controlAlmacen  = new ControladorAlmacen(vistaAlmacen);
 
 
+
+    }
+
+    public void iniciarListas(){
+        controlMenu.iniciardatos();
+        controlPedido.iniciardatos();
+        controlAlmacen.iniciardatos();
+        controlClin.iniciardatosC();
     }
 
 
@@ -46,6 +55,7 @@ public class ControladorPrincipal {
     }
     public ControladorClientes obtenerControladorClientes(){return controlClin; }
     public ControladorLevantarP obtenerLevantarPedido(){return controlPedido ; }
+    public ControladorAlmacen obtenerAlmacen(){return controlAlmacen ; }
 
     public void MenuPrincipal() throws Exception {
         Integer opcion=0;
@@ -59,6 +69,7 @@ public class ControladorPrincipal {
 
                     break;
                 case 3:
+                    controlAlmacen.MenuDeAlmacen();
 
                     break;
                 case 4:

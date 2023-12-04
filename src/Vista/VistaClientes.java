@@ -94,7 +94,7 @@ public class VistaClientes {
 
     public int MenuCliente(){
         lectura = new Scanner(System.in);
-        System.out.println("======Menú=====");
+        System.out.println("======Menú  Clientes=====");
         System.out.println("1-Agregar Cliente");
         System.out.println("2-Borrar Cliente ");
         System.out.println("3-Modificar Cliente");

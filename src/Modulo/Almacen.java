@@ -1,6 +1,8 @@
 package Modulo;
 
-public class Almacen {
+import java.io.Serializable;
+
+public class Almacen implements Serializable {
 
     private String codigo;
     private String categoria;
