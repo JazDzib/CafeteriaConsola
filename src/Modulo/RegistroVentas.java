@@ -29,6 +29,7 @@ public class RegistroVentas  implements Serializable {
         this.datosPedido = datosPedido;
     }
 
+    public RegistroVentas(){}
     public int getMesa() {
         return mesa;
     }

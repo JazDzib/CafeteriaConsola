@@ -56,7 +56,7 @@ public class VistaRegistroV {
 
     public int MenuVentas(){
         lectura = new Scanner(System.in);
-        System.out.println("======Menú  Clientes=====");
+        System.out.println("======Menú  Venta=====");
         System.out.println("1-Agregar Venta");
         System.out.println("2-Borrar  Venta ");
         System.out.println("3-Modificar  Venta");

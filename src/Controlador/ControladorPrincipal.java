@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modulo.Percistencia;
+import Modulo.Ticket;
 import Vista.*;
 
 public class ControladorPrincipal {
@@ -17,6 +18,7 @@ public class ControladorPrincipal {
     private ControladorAlmacen controlAlmacen;
     private VistaRegistroV vistaVenta;
     private ControladorVenta controlVenta;
+    private Ticket ticket=new Ticket();
 
     public ControladorPrincipal(VistaControladorP vistacontroladorP) {
         this.vistacontroladorP = vistacontroladorP;
@@ -89,7 +91,7 @@ public class ControladorPrincipal {
                     break;
 
                 case 6:
-                   controlVenta.GenerarTicket();
+                   ticket.GenerarTicket();
 
                     break;
 

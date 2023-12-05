@@ -26,7 +26,7 @@ public class ControladorVenta implements Agregar {
     }//Constructor
 
 
-    public void GenerarTicket() {
+   /* public void GenerarTicket() {
         ArrayList<RegistroVentas> datos = new ArrayList<>();
         datos = Percistencia.cargarVentas("Ventas.txt");
 
@@ -47,24 +47,7 @@ public class ControladorVenta implements Agregar {
         }
         System.out.println("Total de la compra:"+suma);
 
-
-
-       /* RegistroVentas nuevaVenta = new RegistroVentas(ventas1.getFecha(), ventas1.getNombreC(), ventas1.getTotal(), datos);
-        ventasList.add(nuevaVenta);
-        System.out.println("==Venta==");
-        System.out.println("Cliente" + nuevaVenta.getNombreC());
-        if (nuevaVenta != null && nuevaVenta.getDatosPedido() != null) {
-            for (int i = 0; i < nuevaVenta.getDatosPedido().size(); i++) {
-                System.out.println(nuevaVenta.getDatosPedido().get(i).getFecha());
-                System.out.println(nuevaVenta.getDatosPedido().get(i).getNombre());
-                System.out.println(nuevaVenta.getDatosPedido().get(i).getCantidad());
-                System.out.println(nuevaVenta.getDatosPedido().get(i).getSubtotal());
-                System.out.println(nuevaVenta.getDatosPedido().get(i).costoTotal());
-            }
-
-
-        }*/
-    }
+    }*/
 
 
 
@@ -170,7 +153,7 @@ public class ControladorVenta implements Agregar {
 
     public void MenuVenta() throws Exception {
         Integer opcion=0; ;
-        while(opcion != 5){
+        while(opcion != 6){
             switch (vista.MenuVentas()){
                 case 1:
                     agregar();
