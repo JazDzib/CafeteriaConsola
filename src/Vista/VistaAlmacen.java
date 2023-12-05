@@ -10,23 +10,38 @@ import java.util.Scanner;
 public class VistaAlmacen {
     Scanner lectura = new Scanner(System.in);
 
+    /**Método que solicita el Código
+     * @return Código del producto.
+     */
     public String SolicitarCodigo(){
         System.out.println("Escribe el Codigo. ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Codigo
+    }
+
+    /**Método que solicita Categoria
+     * @return La categoría del producto.
+     */
     public String SolicitarCategoria() {
         System.out.println("Escribe la Categoria ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Categoria
+    }
+
+    /**
+     * Método que solicita ingresar el nombre del producto.
+     * @return Nombre del producto.
+     */
     public String SolicitarNombre(){
         System.out.println("Escribe el Nombre ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Producto
+    }
 
-
+    /**
+     * Solicita ingresar el número de existencia del producto.
+     * @return El número de existencia.
+     */
     public int SolicitarExistencias () {
         boolean entrada2 = true;
         while (true){
@@ -48,19 +63,20 @@ public class VistaAlmacen {
         }
 
     }
-    //Método que solicita Precio
 
-
-
-
-
-
+    /**
+     * Método que imprime la información de todos los productos en el almacén.
+     * @param almacenList Lista de productos en el almacén.
+     */
     public void imprimirInfoTotalIngred(ArrayList<Almacen> almacenList){
         Percistencia.cargarIngredientes("Almacen.txt");
         almacenList.forEach(System.out::println);
+    }
 
-    }////Método que imprime los elementos del ArrayList
-
+    /**
+     * Muestra menú de opciones
+     * @return La opción seleccionada.
+     */
     public int Menu(){
         lectura = new Scanner(System.in);
         System.out.println("======Menú Almacen=====");
@@ -71,9 +87,12 @@ public class VistaAlmacen {
         System.out.println("5-Salir");
         System.out.println("Opción: ");
         return lectura.nextInt();
-    }////Método que despliega texto y recibe un elemento
+    }
 
-
+    /**
+     * Imprime mensajes indicando si un producto fue eliminado o no encontrado.
+     * @param e Booleano que indica si el producto fue eliminado.
+     */
     public void imprimeInfoBorrado(boolean e)
     {
         if (e) {
@@ -81,8 +100,7 @@ public class VistaAlmacen {
         }else{
             prodNOEncontado();
         }
-    }//Método que imprime mensajes cuando se elimina un producto
-
+    }
     ////Métodos que despliegan mensajes
     public void prodEliminado(){
         System.out.println("++El producto fue  borrado++");
@@ -94,17 +112,22 @@ public class VistaAlmacen {
         System.out.println("++No se encuentra el producto++");
     }
 
-
-
+    /**
+     * Imprime la información de un producto.
+     * @param obj1 Objeto de tipo Almacen que representa un producto.
+     */
     public void imprimirInfoIngred(Almacen obj1){
         if (obj1 != null)
             System.out.println(obj1);
         else
             prodNOEncontado();
-    }//Método que imprime los productos
+    }
 
+    /**
+     * Muestra un menú de opciones para modificar un producto y solicita al usuario seleccionar una.
+     * @return La opción seleccionada por el usuario.
+     */
     public int MenuModificarAlmacen(){
-
         lectura = new Scanner(System.in);
         //lectura.useDelimiter("\n");
         System.out.println("===Menú modificación===");

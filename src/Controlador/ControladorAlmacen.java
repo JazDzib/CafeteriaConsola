@@ -15,17 +15,26 @@ public class ControladorAlmacen {
 
 
 
+    /**
+     * Constructor
+     * @param vista Vista del controlador.
+     */
     ControladorAlmacen(VistaAlmacen vista){
         almacenList =  new ArrayList<>();
         this.vista=vista;
-
-    }//Constructor
-    public void iniciardatos (){
-
-        almacenList = Percistencia.cargarIngredientes("Almacen.txt");
-
     }
 
+    /**
+     * Inicializador de carga de datos
+     */
+    public void iniciardatos (){
+        almacenList = Percistencia.cargarIngredientes("Almacen.txt");
+    }
+
+    /**
+     * Agrega un nuevo ingrediente al almacén y guarda la lista actualizada en un archivo.
+     * @throws Exception Si ocurre un error durante la adición.
+     */
     public void agregar() throws Exception {
         almacen1 = new Almacen(vista.SolicitarCodigo(),
                 vista.SolicitarCategoria(),
@@ -35,8 +44,11 @@ public class ControladorAlmacen {
         Percistencia.guardarIngredientes(almacenList,"Almacen.txt");
     } //Método agregar productos
 
-
-
+    /**
+     * Busca un ingrediente.
+     * @param codigo Código del ingrediente a buscar.
+     * @return Índice del ingrediente si se encuentra, de lo contrario -1.
+     */
     public int buscar(String codigo){
         //String codigo =menu1.getCodigo();
         for (int i = 0; i < almacenList.size(); i++) {
@@ -47,25 +59,29 @@ public class ControladorAlmacen {
                 return i;
             }//
         }
-        return -1;//Código de producto no encotrado
+        return -1;
+    }
 
-    } //Método que buscas el codigo del producto
-
-
-
+    /**
+     * Elimina un ingrediente del almacén.
+     * @param codigo Código del ingrediente a eliminar.
+     * @return true si se eliminó correctamente, false si no se encontró el ingrediente.
+     */
     public boolean eliminarProducto (String codigo){
         int compara = buscar(codigo);
         if (compara != -1) {
-            almacenList.remove(compara);//elimina el producto del Array
+            almacenList.remove(compara);
             return true;
         }else {
-
             return false;
         }
-    }//Metodo para eliminar productos
+    }
 
-
-
+    /**
+     * Modifica los atributos de un ingrediente.
+     * @param codigo Código del ingrediente a modificar.
+     * @throws Exception Si ocurre un error durante la modificación.
+     */
     public void modificarMenu(String codigo) throws Exception {
         int  compara = buscar(codigo);
         if(compara != -1 ) {
@@ -101,7 +117,10 @@ public class ControladorAlmacen {
         }//llave final del if
     }//Método para modificar los atributos
 
-
+    /**
+     * Menú de gestión del almacén con opciones para agregar, eliminar, modificar y mostrar información.
+     * @throws Exception Si ocurre un error durante la ejecución del menú.
+     */
     public void MenuDeAlmacen() throws Exception {
         Integer opcion=0; ;
         while(opcion != 5){

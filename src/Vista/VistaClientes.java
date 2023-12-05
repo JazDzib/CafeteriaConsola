@@ -10,22 +10,36 @@ import java.util.Scanner;
 public class VistaClientes {
     Scanner lectura = new Scanner(System.in);
 
+    /**
+     * @return ID del cliente .
+     */
     public String SolicitarID(){
         System.out.println("Escribe el ID. ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Nombre
+    }
+
+    /**
+     * @return Nombre del cliente.
+     */
     public String SolicitarNombre(){
         System.out.println("Escribe el Nombre. ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Nombre
+    }
+
+    /**
+     * @return Apellido del cliente.
+     */
     public String SolicitarApellido() {
         System.out.println("Escribe el Apellido");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita  Apelido
+    }
 
+    /**
+     * @return Edad del cliente.
+     */
     public int SolicitarEdad () {
         boolean entrada1 = true;
         while (true){
@@ -36,7 +50,6 @@ public class VistaClientes {
                 String entrada = lectura.nextLine();
                 int edad;
                 edad = Integer.parseInt(entrada);
-
 
                 return edad;
 
@@ -49,17 +62,27 @@ public class VistaClientes {
 
     }
 
+    /**
+     * @return Domicilio del cliente.
+     */
     public String SolicitarDomicilio(){
         System.out.println("Escribe el Domicilio ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Producto
+    }
+
+    /**
+     * @return Correo del cliente.
+     */
     public String SolicitarCorreo(){
         System.out.println("Escribe el Correo");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Domicilio
+    }
 
+    /**
+     * @return Número de teléfono del cliente.
+     */
     public int SolicitarNumeroTelefono () {
         boolean entrada2 = true;
         while (true){
@@ -83,15 +106,18 @@ public class VistaClientes {
 
     }
 
-
-
-
+    /**Método que imprime los elementos del ArrayList
+     * @param clientesList Lista de clientes.
+     */
     public void imprimirInfoTotalCli(ArrayList<Clientes> clientesList){
         Percistencia.cargarClientes("Clientes.txt");
         clientesList.forEach(System.out::println);
+    }
 
-    }////Método que imprime los elementos del ArrayList
-
+    /**
+     * Método que muestra un menú de opciones y solicita al usuario seleccionar una.
+     * @return La opción seleccionada por el usuario.
+     */
     public int MenuCliente(){
         lectura = new Scanner(System.in);
         System.out.println("======Menú  Clientes=====");
@@ -102,8 +128,12 @@ public class VistaClientes {
         System.out.println("5-Salir");
         System.out.println("Opción: ");
         return lectura.nextInt();
-    }////Método que despliega texto y recibe un elemento
+    }
 
+    /**
+     * Imprime mensajes indicando si un cliente fue eliminado o no encontrado.
+     * @param e Booleano que indica si el cliente fue eliminado.
+     */
     public void imprimeInfoBorrado(boolean e)
     {
         if (e) {
@@ -111,7 +141,7 @@ public class VistaClientes {
         }else{
             prodNOEncontado();
         }
-    }//Método que imprime mensajes cuando se elimina un producto
+    }
 
     ////Métodos que despliegan mensajes
     public void prodEliminado(){
@@ -124,16 +154,22 @@ public class VistaClientes {
         System.out.println("++No se encuentra el Cliente++");
     }
 
-
-
+    /**
+     * Método que imprime la información de un cliente.
+     * @param obj1 Representa un cliente.
+     */
     public void imprimirInfoProd(Clientes obj1){
         if (obj1 != null)
             System.out.println(obj1);
         else
             prodNOEncontado();
-    }//Método que imprime los productos
+    }
 
-    public int MenuModificarCliente(){
+    /**
+     * Método que muestra un menú de opciones para modificar un cliente.
+     * @return La opción seleccionada por el usuario.
+     */
+    public int MenuModificarCliente() {
         lectura = new Scanner(System.in);
         //lectura.useDelimiter("\n");
         System.out.println("===Menú modificación===");
@@ -146,5 +182,6 @@ public class VistaClientes {
         System.out.println("7-Salir");
         System.out.println("Opción :");
         return lectura.nextInt();
-    }//Método que despliega texto y recibe un elemento
+    }
+
 }

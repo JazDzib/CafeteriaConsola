@@ -13,26 +13,43 @@ public class VistaMenu {
 
     Scanner lectura = new Scanner(System.in);
 
+    /**
+     * Método que solicita y devuelve el código ingresado por el usuario.
+     * @return Código ingresado por el usuario.
+     */
     public String SolicitarCodigo(){
         System.out.println("Escr. Codigo. ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Codigo
+    }
+
+    /**
+     * Método que solicita y devuelve la categoría ingresada por el usuario.
+     * @return Categoría ingresada por el usuario.
+     */
     public String SolicitarCategria() {
         System.out.println("Escr. Categoria ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Categoria
+    }
+
+    /**
+     * Método que solicita y devuelve el nombre del producto ingresado por el usuario.
+     * @return Nombre del producto ingresado por el usuario.
+     */
     public String SolicitarProducto(){
         System.out.println("Escr. Producto ");
         lectura = new Scanner(System.in);
         return lectura.next();
-    }//Método que solicita Producto
+    }
 
-
+    /**
+     * Método que solicita y devuelve el precio ingresado por el usuario.
+     * @return Precio ingresado por el usuario.
+     */
         public double SolicitarPrecio () {
             boolean entrada2 = true;
-            while (true){
+            while (true) {
 
                 try {
                     System.out.println("Escr. Precio");
@@ -51,25 +68,30 @@ public class VistaMenu {
             }
 
         }
-        //Método que solicita Precio
 
-
-
-
-
+    /**
+     * Método que solicita y devuelve la descripción del producto ingresada por el usuario.
+     * @return Descripción del producto ingresada por el usuario.
+     */
     public String SolicitarDescripcion(){
         System.out.println("Escr. Descripcion del Producto ");
         lectura = new Scanner(System.in);
         return lectura.nextLine();
-    }//Método que solicita Descripción
+    }
 
-
+    /**
+     * Método que imprime los elementos del ArrayList
+     * @param menuTList Imprime el menú.
+     */
     public void imprimirInfoTotal(ArrayList<MenuTienda>menuTList){
         Percistencia.cargarMenu("Menu.txt");
         menuTList.forEach(System.out::println);
+    }
 
-    }////Método que imprime los elementos del ArrayList
-
+    /**
+     * Método que muestra el menú principal.
+     * @return Opción seleccionada.
+     */
     public int Menu(){
         lectura = new Scanner(System.in);
         System.out.println("======Menú=====");
@@ -80,19 +102,20 @@ public class VistaMenu {
         System.out.println("5-Salir");
         System.out.println("Opción: ");
         return lectura.nextInt();
-    }////Método que despliega texto y recibe un elemento
+    }
 
-
-    public void imprimeInfoBorrado(boolean e)
-    {
-        if (e) {
+    /**
+     * Método que imprime un mensaje cuando se elimina un producto.
+     * @param e Indica si se eliminó el producto o no.
+     */
+    public void imprimeInfoBorrado(boolean e){
+        if(e){
             prodEliminado();
         }else{
             prodNOEncontado();
         }
-    }//Método que imprime mensajes cuando se elimina un producto
-
-    ////Métodos que despliegan mensajes
+    }
+    /**Métodos de los mensajes*/
     public void prodEliminado(){
         System.out.println("++El producto fue  borrado++");
     }
@@ -104,14 +127,21 @@ public class VistaMenu {
     }
 
 
-
+    /**
+     * Método que imprime la información de los productos.
+     * @param obj1 Producto a imprimir.
+     */
     public void imprimirInfoProd(MenuTienda obj1){
         if (obj1 != null)
             System.out.println(obj1);
         else
             prodNOEncontado();
-    }//Método que imprime los productos
+    }
 
+    /**
+     * Método que muestra el menú de opciones para modificar el menú.
+     * @return Opción seleccionada por el usuario.
+     */
     public int MenuModificarMenu(){
         lectura = new Scanner(System.in);
 
@@ -123,5 +153,5 @@ public class VistaMenu {
         System.out.println("5-Salir");
         System.out.println("Opción :");
         return lectura.nextInt();
-    }//Método que despliega texto y recibe un elemento
+    }
 }

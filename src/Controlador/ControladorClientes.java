@@ -14,27 +14,39 @@ public class ControladorClientes implements Agregar {
     private ArrayList<Clientes> clientesList;
     private VistaClientes vista;
     private Clientes clientes1;
+
+    /**
+     * Constructor
+     * @param vista Vista asociada al controlador.
+     */
     public ControladorClientes(VistaClientes vista) {
         clientesList = new  ArrayList<>();
         this.vista = vista;
     }
 
-
-
+    /**
+     * Arraylist de clientes.
+     * @return Lista de los clientes.
+     */
     public ArrayList<Clientes> getClientesList() {
         return clientesList;
     }
 
+    /**
+     * @param clientesList Lista de clientes a establecer.
+     */
     public void setClientesList(ArrayList<Clientes> clientesList) {
         this.clientesList = clientesList;
     }
 
-
     public void iniciardatosC (){
-
         clientesList = Percistencia.cargarClientes("Clientes.txt");
-
     }
+
+    /**
+     * Agregar cliente nuevo.
+     * @throws Exception Si ocurre un error durante la adición.
+     */
     public void agregar() throws Exception {
         clientes1 = new Clientes(vista.SolicitarID(),vista.SolicitarNombre(),
                 vista.SolicitarApellido(),
@@ -44,10 +56,13 @@ public class ControladorClientes implements Agregar {
                 vista.SolicitarNumeroTelefono());
        clientesList.add(clientes1);
         Percistencia.guardarClientes(clientesList,"Clientes.txt");
-    } //Método agregar productos
+    }
 
-
-
+    /**
+     * Buscar cliente.
+     * @param id ID del cliente a buscar.
+     * @return Índice del cliente si se encuentra, de lo contrario devuelve -1.
+     */
     public int buscar(String id){
         String ideobtenido =clientes1.getId();
         for (int i = 0; i < clientesList.size(); i++) {
@@ -58,12 +73,14 @@ public class ControladorClientes implements Agregar {
                 return i;
             }//
         }
-        return -1;//Código de producto no encotrado
+        return -1;
+    }
 
-    } //Método que buscas el codigo del producto
-
-
-
+    /**
+     * Eliminar cliente.
+     * @param id ID del cliente a eliminar.
+     * @return true si se eliminó correctamente, false si no se encontró el cliente.
+     */
     public boolean eliminarProducto (String id){
         int compara = buscar(id);
         if (compara != -1) {
@@ -75,8 +92,11 @@ public class ControladorClientes implements Agregar {
         }
     }//Metodo para eliminar productos
 
-
-
+    /**
+     * Modificar atributos.
+     * @param id ID del cliente a modificar.
+     * @throws Exception Si ocurre un error durante la modificación.
+     */
     public void modificarMenuClientes(String id) throws Exception {
         int    compara = buscar(id);
         if(compara != -1 ) {
@@ -135,7 +155,10 @@ public class ControladorClientes implements Agregar {
         }//llave final del if
     }//Método para modificar los atributos
 
-
+    /**
+     * Menú de gestión de clientes con opciones para agregar, eliminar, modificar y mostrar información.
+     * @throws Exception Si ocurre un error durante la ejecución del menú.
+     */
     public void MenudeClientes() throws Exception {
         Integer opcion=0; ;
         while(opcion != 5){
@@ -163,5 +186,4 @@ public class ControladorClientes implements Agregar {
             } //fin del switch
         } //fin del while
     } //fin de Menu de Tienda
-
 }
