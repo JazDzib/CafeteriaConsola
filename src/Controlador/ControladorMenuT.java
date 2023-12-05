@@ -134,12 +134,14 @@ public class ControladorMenuT implements Agregar{
                     vista.imprimirInfoTotal(menuTList);
 
                     break;
+
                 case 5:
                     opcion = 5;
                     break;
             } //fin del switch
         } //fin del while
     } //fin de Menu de Tienda
+
 
 
 }

@@ -22,10 +22,11 @@ public class MenuTienda implements Serializable {
         this.descripcion= descripcion;
     }//Contructor
 
-    public MenuTienda(String codigo, String categoria, String producto, Integer precio) {
-    }//Constructor
-
-    //Getter and Setters
+    
+    //Getters and Setters
+    /**
+     * @return Código del producto.
+     */
     public String getCodigo() {
         return codigo;
     }

@@ -15,6 +15,8 @@ public class ControladorPrincipal {
     private ControladorLevantarP controlPedido;
     private VistaAlmacen vistaAlmacen;
     private ControladorAlmacen controlAlmacen;
+    private VistaRegistroV vistaVenta;
+    private ControladorVenta controlVenta;
 
     public ControladorPrincipal(VistaControladorP vistacontroladorP) {
         this.vistacontroladorP = vistacontroladorP;
@@ -32,6 +34,8 @@ public class ControladorPrincipal {
 
         vistaAlmacen =new VistaAlmacen();
         controlAlmacen  = new ControladorAlmacen(vistaAlmacen);
+        vistaVenta =new VistaRegistroV();
+        controlVenta  = new ControladorVenta(vistaVenta);
 
 
 
@@ -42,6 +46,8 @@ public class ControladorPrincipal {
         controlPedido.iniciardatos();
         controlAlmacen.iniciardatos();
         controlClin.iniciardatosC();
+        controlVenta.iniciardatos();
+
     }
 
 
@@ -59,7 +65,7 @@ public class ControladorPrincipal {
 
     public void MenuPrincipal() throws Exception {
         Integer opcion=0;
-        while(opcion != 9){
+        while(opcion != 7){
             switch (vistacontroladorP.Menu()){
                 case 1:
                     controlMenu.MenuDELaTienda();
@@ -73,6 +79,7 @@ public class ControladorPrincipal {
 
                     break;
                 case 4:
+                    controlVenta.MenuVenta();
 
 
                     break;
@@ -80,17 +87,15 @@ public class ControladorPrincipal {
                     controlClin.MenudeClientes();
 
                     break;
+
                 case 6:
+                   controlVenta.GenerarTicket();
 
                     break;
+
                 case 7:
-
-                    break;
-                case 8:
-
-                    break;
-                case 9:
-                    opcion = 9;
+                    opcion = 7;
+                    vistacontroladorP.MsgGracias();
 
                     break;
 

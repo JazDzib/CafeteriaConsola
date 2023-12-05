@@ -10,47 +10,42 @@ import Vista.VistaMenu;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControladorLevantarP implements Agregar {
+public class ControladorLevantarP {
     private ArrayList<LevantarPedido> pedidosList;
-    private VistaLevantarP vista;
+    private VistaLevantarP vista = new VistaLevantarP();
     private LevantarPedido pedido1;
-    private ArrayList<MenuTienda> menuTList;
-    private VistaMenu vistamenu;
 
 
 
-    public void setMenuTList(ArrayList<LevantarPedido> menuTList) {
-        this.pedidosList = menuTList;
-    }
-    public ArrayList<LevantarPedido> getMenuTList() {
-        return pedidosList;
-    }
+
 
     ControladorLevantarP(VistaLevantarP vista){
         pedidosList =  new ArrayList<>();
         this.vista=vista;
-        menuTList = new ArrayList<>();
 
     }//Constructor
+
+    public ControladorLevantarP() {
+    }
+
     public void iniciardatos (){
 
         pedidosList = Percistencia.cargarPedidos("PedidosP.txt");
 
     }
-    public ArrayList mostrarMenu(){
 
-        return getMenuTList();
-    }
-    public void agregar() throws Exception {
+    public LevantarPedido agregardetalle() throws Exception {
         pedido1 = new LevantarPedido(
                 vista.SolicitarCodigo(),
-                vista.SolicitarNombre(),
-                vista.SolicitarMesa(),
                 vista.SolicitarPlatillo(),
-                vista.SolicitarCantidad());
-        pedidosList.add(pedido1);
-        Percistencia.guardarPedidos(pedidosList,"PedidosP.txt");
+                vista.SolicitarPrecio(),
+                vista.SolicitarCantidad()
+                );
+
+        return pedido1;
+
     } //Método agregar productos
+
 
 
 
@@ -88,34 +83,33 @@ public class ControladorLevantarP implements Agregar {
         if(compara != -1 ) {
             vista.imprimirInfoProd(pedidosList.get(compara));
             Integer opcion = 0;
-            while (opcion != 5) {
+            while (opcion != 7) {
                 switch (vista.MenuModificarLevantaP()) {
+
                     case 1:
-
-                        vista.imprimirInfoProd(pedidosList.get(compara));
-                        pedidosList.get(compara).setNombre(vista.SolicitarNombre());
-
-                        break;
-                    case 2:
-
-                        vista.imprimirInfoProd(pedidosList.get(compara));
-                        pedidosList.get(compara).setMesa(vista.SolicitarMesa());
-
-                        break;
-                    case 3:
-
                         vista.imprimirInfoProd(pedidosList.get(compara));
                         pedidosList.get(compara).setPlatillo(vista.SolicitarPlatillo());
 
-                        break;
-                    case 4:
 
+
+                        break;
+                    case 2:
+                        vista.imprimirInfoProd(pedidosList.get(compara));
+                        pedidosList.get(compara).setPrecio(vista.SolicitarPrecio());
+
+
+
+                        break;
+                    case 3:
                         vista.imprimirInfoProd(pedidosList.get(compara));
                         pedidosList.get(compara).setCantidad(vista.SolicitarCantidad());
 
+
+
                         break;
-                    case 5:
-                        opcion = 5;
+
+                    case 4:
+                        opcion = 4;
                         break;
                 }//fin switch
             }//llave final del while
@@ -128,7 +122,7 @@ public class ControladorLevantarP implements Agregar {
         while(opcion != 6){
             switch (vista.MenuPedido()){
                 case 1:
-                    agregar();
+                    agregardetalle();
                     break;
                 case 2:
                     String  indice = vista.SolicitarCodigo();
@@ -146,7 +140,7 @@ public class ControladorLevantarP implements Agregar {
                     break;
                 case 5:
 
-                    Percistencia.cargarMenu("Menu.txt");
+                    imprimirMenulista();
 
                     break;
                 case 6:
@@ -156,5 +150,11 @@ public class ControladorLevantarP implements Agregar {
         } //fin del while
     } //fin de Menu de Tienda
 
-
+    public void imprimirMenulista(){
+       ArrayList<MenuTienda> llamamenu = new ArrayList<>();
+        llamamenu =Percistencia.cargarMenu("Menu.txt");
+        for (int i = 0; i <llamamenu.size() ; i++) {
+            System.out.println(llamamenu.get(i));
+        }
+    }
 }

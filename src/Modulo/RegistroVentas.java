@@ -1,28 +1,68 @@
 package Modulo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
-public class RegistroVentas implements Serializable {
-    private String codigo;
+public class RegistroVentas  implements Serializable {
+
     private String fecha;
-    private int precio;
+    private String nombreC;
+    private double precio;
     private int prodVend;
-    private  String nombreC;
+    private double subtotal;
+    private double total;
+    private int mesa;
+    private ArrayList<LevantarPedido> datosPedido;
 
-    public RegistroVentas(String codigo, String fecha, String nombreC, int precio, int prodVend) {
-        this.codigo= codigo;
+    public RegistroVentas(String fecha,String nombreC, int prodVend) {
+        this.fecha = fecha;
+        this.nombreC=nombreC;
+
+        this.prodVend = prodVend;
+
+    }
+
+    public RegistroVentas(String fecha, String nombreC, int mesa, ArrayList<LevantarPedido> datosPedido) {
         this.fecha = fecha;
         this.nombreC = nombreC;
-        this.precio = precio;
-        this.prodVend = prodVend;
+        this.mesa=mesa;
+        this.datosPedido = datosPedido;
     }
 
-    public String getId() {
-        return codigo;
+    public int getMesa() {
+        return mesa;
     }
 
-    public void setId(String codigo) {
-        this.codigo = codigo;
+    public void setMesa(int mesa) {
+        this.mesa = mesa;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(double subtotal) {
+        this.subtotal = subtotal;
+    }
+
+    public ArrayList<LevantarPedido> getDatosPedido() {
+        return datosPedido;
+    }
+
+    public void setDatosPedido(ArrayList<LevantarPedido> datosPedido) {
+        this.datosPedido = datosPedido;
+    }
+
+    public String getNombreC() {
+        return nombreC;
+    }
+
+    public void setNombreC(String nombreC) {
+        this.nombreC = nombreC;
     }
 
     public String getFecha() {
@@ -33,11 +73,11 @@ public class RegistroVentas implements Serializable {
         this.fecha = fecha;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -49,22 +89,13 @@ public class RegistroVentas implements Serializable {
         this.prodVend = prodVend;
     }
 
-    public String getNombreC() {
-        return nombreC;
-    }
-
-    public void setNombreC(String nombreC) {
-        this.nombreC = nombreC;
-    }
-
     @Override
     public String toString() {
         return "RegistroVentas{" +
-                "codigo='" + codigo + '\'' +
-                ", fecha='" + fecha + '\'' +
-                ", precio=" + precio +
-                ", productos Vendidos=" + prodVend +
-                ", nombreCliente='" + nombreC + '\'' +
+                "fecha='" + fecha + '\'' +
+                ", nombreC='" + nombreC + '\'' +
+                ", mesa=" + mesa +
+                ", datosPedido=" + datosPedido +
                 '}';
     }
 }

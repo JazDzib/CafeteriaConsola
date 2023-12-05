@@ -12,10 +12,8 @@ public class VistaControladorP {
         System.out.println("3- Almacen ");
         System.out.println("4- Registro de Ventas");
         System.out.println("5- Clientes");
-        System.out.println("6- Mesas y sillas");
-        System.out.println("7- Ticket");
-        System.out.println("8- Generador de reportes");
-        System.out.println("9- Salir");
+        System.out.println("6- Ticket");
+        System.out.println("7- Salir");
         System.out.println("Opción: ");
         return lectura.nextInt();
     }

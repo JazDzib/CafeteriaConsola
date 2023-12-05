@@ -13,12 +13,7 @@ public class ControladorAlmacen {
     private VistaAlmacen vista;
     private Almacen almacen1;
 
-    public void setMenuTList(ArrayList<Almacen> menuTList) {
-        this.almacenList = menuTList;
-    }
-    public ArrayList<Almacen> getMenuTList() {
-        return almacenList;
-    }
+
 
     ControladorAlmacen(VistaAlmacen vista){
         almacenList =  new ArrayList<>();

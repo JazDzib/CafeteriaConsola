@@ -90,4 +90,25 @@ public class Percistencia {
         }
         return listaLeida;
     }
+    public static void guardarVentas(ArrayList<RegistroVentas> ventasList, String nombreArchivo) {
+        try (ObjectOutputStream salidaV = new ObjectOutputStream(new FileOutputStream(nombreArchivo))) {
+            salidaV.writeObject(ventasList);
+            System.out.println("Lista de pedidos guardada con éxito en " + nombreArchivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<RegistroVentas> cargarVentas(String nombreArchivo) {
+        ArrayList<RegistroVentas> listaLeida = new ArrayList<>();
+        try (ObjectInputStream entradaV = new ObjectInputStream(new FileInputStream(nombreArchivo))) {
+            listaLeida = (ArrayList<RegistroVentas>) entradaV.readObject();
+            System.out.println("Lista de pedidos cargada con éxito desde " + nombreArchivo);
+        } catch (FileNotFoundException e) {
+            System.out.println("El archivo " + nombreArchivo + " no existe. Se creará uno nuevo.");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return listaLeida;
+    }
 }

@@ -78,7 +78,7 @@ public class ControladorClientes implements Agregar {
 
 
     public void modificarMenuClientes(String id) throws Exception {
-        int  compara = buscar(id);
+        int    compara = buscar(id);
         if(compara != -1 ) {
             vista.imprimirInfoProd(clientesList.get(compara));
             Integer opcion = 0;

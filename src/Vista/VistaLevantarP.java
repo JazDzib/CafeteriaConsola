@@ -10,20 +10,17 @@ import java.util.Scanner;
 public class VistaLevantarP {
 
     Scanner lectura= new Scanner(System.in);
+
+
     public String SolicitarCodigo(){
-        System.out.println("Escr. Codigo. ");
+        System.out.println("Escribe el Codigo. ");
         lectura = new Scanner(System.in);
         return lectura.next();
     }//Método que solicita Codigo
 
-    public String SolicitarNombre () {
-        System.out.println("Escribe el nombre");
-        lectura = new Scanner(System.in);
-        return lectura.next();
 
-    }
 
-    public int SolicitarMesa(){
+    /*public int SolicitarMesa(){
 
         while (true){
 
@@ -43,7 +40,7 @@ public class VistaLevantarP {
             }
 
         }
-    }
+    }*/
     public String SolicitarPlatillo(){
 
         System.out.println("Escribe el platillo");
@@ -63,6 +60,27 @@ public class VistaLevantarP {
                 cant = Integer.parseInt(entrada);
 
                 return  cant;
+
+
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada no válida. Debes ingresar un número.");
+
+            }
+
+        }
+
+    }
+    public double SolicitarPrecio(){
+        while (true){
+
+            try {
+                System.out.println("Escribe el precio");
+                lectura= new Scanner(System.in);
+                String entrada = lectura.nextLine();
+                double prec;
+                prec = Double.parseDouble(entrada);
+
+                return  prec;
 
 
             } catch (NumberFormatException e) {
@@ -124,11 +142,12 @@ public class VistaLevantarP {
         lectura = new Scanner(System.in);
         //lectura.useDelimiter("\n");
         System.out.println("===Menú modificación===");
-        System.out.println("1-Nombre ");
-        System.out.println("2-Mesa");
-        System.out.println("3-Platillo");
-        System.out.println("4-Catidad");
-        System.out.println("5-Opción :");
+        System.out.println("1-Platillo");
+        System.out.println("2-Precio");
+        System.out.println("3-Cantidad ");
+        System.out.println("4-Salir ");
+        System.out.println("Opcion: ");
+
         return lectura.nextInt();
     }//Método que despliega texto y recibe un elemento
 
